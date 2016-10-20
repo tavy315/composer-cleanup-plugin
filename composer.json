@@ -1,0 +1,26 @@
+{
+  "name": "tavy315/composer-cleanup-plugin",
+  "type": "composer-plugin",
+  "description": "A composer cleanup plugin, to remove tests and documentation to save space based on barryvdh/composer-cleanup-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Octavian Matei",
+      "email": "octav@octav.name",
+      "homepage": "https://www.octav.name",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "composer-plugin-api": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Tavy315\\Composer\\": "src/"
+    }
+  },
+  "extra": {
+    "class": "Tavy315\\Composer\\CleanupPlugin"
+  }
+}
