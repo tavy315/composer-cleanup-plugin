@@ -97,6 +97,7 @@ class CleanupRules
             'tavy315/zendframework1'                        => [ $docs, $tests, $bin, 'resources', 'DEVELOPMENT_README.md' ],
             'tijsverkoyen/css-to-inline-styles'             => [ $docs, $tests ],
             'twig/twig'                                     => [ $docs, $tests ],
+            'ua-parser/uap-php'                             => [ $docs, $tests ],
             'venturecraft/revisionable'                     => [ $docs, $tests ],
             'vlucas/phpdotenv'                              => [ $docs, $tests ],
             'willdurand/geocoder'                           => [ $docs, $tests ],
