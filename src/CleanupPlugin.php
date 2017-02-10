@@ -4,32 +4,32 @@ namespace Tavy315\Composer;
 use Composer\Composer;
 use Composer\EventDispatcher\EventSubscriberInterface;
 use Composer\IO\IOInterface;
-use Composer\Plugin\PluginInterface;
-use Composer\Script\ScriptEvents;
-use Composer\Script\PackageEvent;
-use Composer\Script\CommandEvent;
-use Composer\Util\Filesystem;
 use Composer\Package\BasePackage;
+use Composer\Plugin\PluginInterface;
+use Composer\Script\CommandEvent;
+use Composer\Script\PackageEvent;
+use Composer\Script\ScriptEvents;
+use Composer\Util\Filesystem;
 
 class CleanupPlugin implements PluginInterface, EventSubscriberInterface
 {
-    /** @var  \Composer\Composer $composer */
+    /** @var \Composer\Composer $composer */
     protected $composer;
 
-    /** @var  \Composer\IO\IOInterface $io */
+    /** @var \Composer\IO\IOInterface $io */
     protected $io;
 
-    /** @var  \Composer\Config $config */
+    /** @var \Composer\Config $config */
     protected $config;
 
-    /** @var  \Composer\Util\Filesystem $filesystem */
+    /** @var \Composer\Util\Filesystem $filesystem */
     protected $filesystem;
 
-    /** @var  array $rules */
+    /** @var array $rules */
     protected $rules;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function activate(Composer $composer, IOInterface $io)
     {
@@ -41,7 +41,7 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public static function getSubscribedEvents()
     {
