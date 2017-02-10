@@ -1,5 +1,4 @@
 <?php
-
 namespace Tavy315\Composer;
 
 class CleanupRules
@@ -45,6 +44,7 @@ class CleanupRules
             'jasonlewis/basset'                             => [ $docs, $tests ],
             'jeremeamia/SuperClosure'                       => [ $docs, $tests ],
             'kriswallsmith/assetic'                         => [ $docs, $tests ],
+            'knplabs/knp-snappy'                            => [ $docs, $tests ],
             'laravel/framework'                             => [ $docs, $tests, 'build' ],
             'leafo/lessphp'                                 => [ $docs, $tests, 'Makefile package.sh' ],
             'league/flysystem'                              => [ $docs, $tests ],
@@ -69,7 +69,9 @@ class CleanupRules
             'psr/log'                                       => [ $docs, $tests ],
             'psy/psysh'                                     => [ $docs, $tests ],
             'rcrowe/twigbridge'                             => [ $docs, $tests ],
+            'sebastian/diff'                                => [ $docs, $tests ],
             'simplepie/simplepie'                           => [ $docs, $tests, 'build compatibility_test ROADMAP.md' ],
+            'squizlabs/php_codesniffer'                     => [ $docs, 'licence.txt' ],
             'stack/builder'                                 => [ $docs, $tests ],
             'swiftmailer/swiftmailer'                       => [ $docs, $tests, 'build* notes test-suite create_pear_package.php' ],
             'symfony/browser-kit'                           => [ $docs, $tests ],
@@ -83,10 +85,14 @@ class CleanupRules
             'symfony/finder'                                => [ $docs, $tests ],
             'symfony/http-foundation'                       => [ $docs, $tests ],
             'symfony/http-kernel'                           => [ $docs, $tests ],
+            'symfony/polyfill-mbstring'                     => [ $docs, $tests ],
+            'symfony/polyfill-php54'                        => [ $docs, $tests ],
+            'symfony/polyfill-php55'                        => [ $docs, $tests ],
             'symfony/process'                               => [ $docs, $tests ],
             'symfony/routing'                               => [ $docs, $tests ],
             'symfony/security'                              => [ $docs, $tests ],
             'symfony/security-core'                         => [ $docs, $tests ],
+            'symfony/stopwatch'                             => [ $docs, $tests ],
             'symfony/translation'                           => [ $docs, $tests ],
             'symfony/var-dumper'                            => [ $docs, $tests ],
             'symfony/yaml'                                  => [ $docs, $tests ],
