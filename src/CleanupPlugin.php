@@ -2,30 +2,33 @@
 namespace Tavy315\Composer;
 
 use Composer\Composer;
+use Composer\Config;
 use Composer\EventDispatcher\EventSubscriberInterface;
+use Composer\Installer\PackageEvent;
 use Composer\IO\IOInterface;
 use Composer\Package\BasePackage;
+use Composer\Package\CompletePackage;
 use Composer\Plugin\PluginInterface;
+use Composer\Repository\WritableRepositoryInterface;
 use Composer\Script\CommandEvent;
-use Composer\Script\PackageEvent;
 use Composer\Script\ScriptEvents;
 use Composer\Util\Filesystem;
 
 class CleanupPlugin implements PluginInterface, EventSubscriberInterface
 {
-    /** @var \Composer\Composer $composer */
+    /** @var Composer */
     protected $composer;
 
-    /** @var \Composer\IO\IOInterface $io */
+    /** @var IOInterface */
     protected $io;
 
-    /** @var \Composer\Config $config */
+    /** @var Config */
     protected $config;
 
-    /** @var \Composer\Util\Filesystem $filesystem */
+    /** @var Filesystem */
     protected $filesystem;
 
-    /** @var array $rules */
+    /** @var array */
     protected $rules;
 
     /**
@@ -46,18 +49,10 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            ScriptEvents::POST_PACKAGE_INSTALL => [
-                [ 'onPostPackageInstall', 0 ],
-            ],
-            ScriptEvents::POST_PACKAGE_UPDATE  => [
-                [ 'onPostPackageUpdate', 0 ],
-            ],
-            /*ScriptEvents::POST_INSTALL_CMD     => [
-                [ 'onPostInstallUpdateCmd', 0 ],
-            ],
-            ScriptEvents::POST_UPDATE_CMD      => [
-                [ 'onPostInstallUpdateCmd', 0 ],
-            ],*/
+            ScriptEvents::POST_PACKAGE_INSTALL => [ [ 'onPostPackageInstall', 0 ] ],
+            ScriptEvents::POST_PACKAGE_UPDATE  => [ [ 'onPostPackageUpdate', 0 ] ],
+            /*ScriptEvents::POST_INSTALL_CMD     => [ [ 'onPostInstallUpdateCmd', 0 ] ],*/
+            /*ScriptEvents::POST_UPDATE_CMD      => [ [ 'onPostInstallUpdateCmd', 0 ] ],*/
         ];
     }
 
@@ -66,7 +61,7 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
      */
     public function onPostPackageInstall(PackageEvent $event)
     {
-        /** @var \Composer\Package\CompletePackage $package */
+        /** @var CompletePackage $package */
         $package = $event->getOperation()->getPackage();
 
         $this->cleanPackage($package);
@@ -77,7 +72,7 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
      */
     public function onPostPackageUpdate(PackageEvent $event)
     {
-        /** @var \Composer\Package\CompletePackage $package */
+        /** @var CompletePackage $package */
         $package = $event->getOperation()->getTargetPackage();
 
         $this->cleanPackage($package);
@@ -90,10 +85,10 @@ class CleanupPlugin implements PluginInterface, EventSubscriberInterface
      */
     public function onPostInstallUpdateCmd(CommandEvent $event)
     {
-        /** @var \Composer\Repository\WritableRepositoryInterface $repository */
+        /** @var WritableRepositoryInterface $repository */
         $repository = $this->composer->getRepositoryManager()->getLocalRepository();
 
-        /** @var \Composer\Package\CompletePackage $package */
+        /** @var CompletePackage $package */
         foreach ($repository->getPackages() as $package) {
             if ($package instanceof BasePackage) {
                 $this->cleanPackage($package);
