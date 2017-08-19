@@ -6,7 +6,7 @@ class CleanupRules
     public static function getRules()
     {
         $bin = 'bin';
-        $docs = 'CHANGELOG* CONTRIBUTING* FAQ* HISTORY* INSTALL* install* LICENSE* license* README* readme* UPGRADING* UPGRADE* package* demo demos doc docs example examples';
+        $docs = 'CHANGELOG* CONTRIBUTING* FAQ* HISTORY* INSTALL* install* README* readme* UPGRADING* UPGRADE* package* demo demos doc docs example examples';
         $tests = '.scrutinizer.yml .travis.yml phpunit.xml* phpunit.php test tests Tests travis';
 
         return [
@@ -63,7 +63,7 @@ class CleanupRules
             'phenx/php-font-lib'                            => [ $docs, $tests, 'www index.php' ],
             'phenx/php-svg-lib'                             => [ $docs, $tests ],
             'phpdocumentor/reflection-docblock'             => [ $docs, $tests ],
-            'phpoffice/phpexcel'                            => [ $docs, $tests, 'Examples unitTests changelog.txt install.txt license.md' ],
+            'phpoffice/phpexcel'                            => [ $docs, $tests, 'Examples unitTests changelog.txt install.txt' ],
             'phpseclib/phpseclib'                           => [ $docs, $tests, 'build' ],
             'predis/predis'                                 => [ $docs, $tests, $bin ],
             'psr/log'                                       => [ $docs, $tests ],
@@ -71,7 +71,7 @@ class CleanupRules
             'rcrowe/twigbridge'                             => [ $docs, $tests ],
             'sebastian/diff'                                => [ $docs, $tests ],
             'simplepie/simplepie'                           => [ $docs, $tests, 'build compatibility_test ROADMAP.md' ],
-            'squizlabs/php_codesniffer'                     => [ $docs, 'licence.txt' ],
+            'squizlabs/php_codesniffer'                     => [ $docs ],
             'stack/builder'                                 => [ $docs, $tests ],
             'swiftmailer/swiftmailer'                       => [ $docs, $tests, 'build* notes test-suite create_pear_package.php' ],
             'symfony/browser-kit'                           => [ $docs, $tests ],
