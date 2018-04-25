@@ -38,7 +38,6 @@ class CleanupRules
             'dompdf/dompdf'                                 => [ $docs, $tests, 'www VERSION' ],
             'felixfbecker/advanced-json-rpc'                => [ $docs, $tests ],
             'filp/whoops'                                   => [ $docs, $tests ],
-            'friendsofphp/php-cs-fixer'                     => [ $docs, $tests ],
             'guzzle/guzzle'                                 => [ $docs, $tests ],
             'guzzlehttp/guzzle'                             => [ $docs, $tests ],
             'guzzlehttp/oauth-subscriber'                   => [ $docs, $tests ],
